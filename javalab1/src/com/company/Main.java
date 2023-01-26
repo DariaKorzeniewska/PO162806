@@ -77,6 +77,7 @@ public class Main {
         System.out.println(iloczyn);
     }
 
+    //f
     public static void f(){
         Scanner objekt = new Scanner(System.in);
         System.out.println("Podaj n: ");
@@ -91,9 +92,13 @@ public class Main {
     }
 
 
+
+
     public static void main(String[] args) {
         System.out.print("zadanie1: ");
-        a();
+
+
+
 
 
     }
