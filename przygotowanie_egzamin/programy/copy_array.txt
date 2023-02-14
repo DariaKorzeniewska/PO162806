@@ -1,0 +1,61 @@
+package clonearray;
+
+import java.util.Date;
+import java.util.Arrays;
+
+public class CloneArrayDemo
+{
+    public static void main(String[] args)
+    {
+        // do skopiowania tablicy, której elementy są
+        // wartościami typu podstawowego wystarczy metoda clone
+        int[] a = new int[10];
+        System.out.println("a = " + Arrays.toString(a));
+        int[] b = a.clone();
+        System.out.println("b = " + Arrays.toString(b));
+
+        String[] s = {"One", "Two", "Three"};
+        System.out.println("s = " + Arrays.toString(s));
+        String[] t = s.clone();  // płytkie kopiowanie
+        System.out.println("t = " + Arrays.toString(t));
+
+        s[0] = "Raz";
+
+        System.out.println("s[0] = " + s[0]);  // Raz
+        System.out.println("t[0] = " + t[0]);  // One
+        System.out.println();
+
+        Date[] d = {new Date(), new Date(), new Date()};
+        System.out.println("d = " + Arrays.toString(d));
+        Date[] e = d.clone();  // płytkie kopiowanie
+        System.out.println("e = " + Arrays.toString(e));
+
+        System.out.println("d[0] = " + d[0]);
+        System.out.println("e[0] = " + e[0]);
+        System.out.println();
+
+        d[0].setTime(60000);
+
+        System.out.println("d[0] = " + d[0]);
+        System.out.println("e[0] = " + e[0]);
+        System.out.println();
+
+        Date[] f = Arrays.copyOf(d, d.length); // płytkie kopiowanie
+
+        d[1].setTime(0);
+
+        System.out.println("d[1] = " + d[1]);
+        System.out.println("f[1] = " + f[1]);
+        System.out.println();
+
+        Date[] g = new Date[d.length];
+        System.arraycopy(d, 0, g, 0, d.length); // płytkie kopiowanie
+
+        d[2].setTime(0);
+        
+        System.out.println("d[2] = " + d[2]);
+        System.out.println("f[2] = " + g[2]);
+        System.out.println();
+    }
+}
+
